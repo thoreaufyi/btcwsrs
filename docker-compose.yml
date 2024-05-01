@@ -1,0 +1,15 @@
+version: '3.8'  # Use a suitable version for your needs
+
+services:
+  mysql:
+    image: mysql:latest
+    ports:
+      - "3310:3306"
+    volumes:
+      - /data:/var/lib/mysql  # Maps the db directory in your project to the MySQL data directory
+    environment:
+      MYSQL_ROOT_PASSWORD: password  # Mandatory root password
+      MYSQL_DATABASE: bitcoin_trades         # Database to be created automatically
+      MYSQL_USER: thoreau                 # New user to be created automatically
+      MYSQL_PASSWORD: password         # Password for the new user
+    restart: always
